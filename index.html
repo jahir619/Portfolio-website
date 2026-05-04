@@ -1,781 +1,445 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jahir Sayyad | Cloud DevOps Engineer</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
+  <meta name="description" content="Jahir Sayyed - Cloud DevOps & LLMOps Engineer Portfolio" />
+  <meta name="keywords" content="DevOps, LLMOps, Kubernetes, Terraform, AWS, Docker, GenAI" />
+  <meta name="author" content="Jahir Sayyed" />
+  <title>Jahir Sayyed | DevOps & LLMOps Engineer</title>  <script src="https://cdn.tailwindcss.com"></script>  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.js"></script>  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />  <style>
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      font-family:'Poppins',sans-serif;
-      background:#050816;
-      color:white;
-      overflow-x:hidden;
+    body {
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: white;
     }
 
-    body::-webkit-scrollbar{
-      width:8px;
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
-    body::-webkit-scrollbar-thumb{
-      background:#00f7ff;
-      border-radius:20px;
+    .gradient-text {
+      background: linear-gradient(to right, #38bdf8, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    header{
-      width:100%;
-      position:fixed;
-      top:0;
-      left:0;
-      z-index:1000;
-      backdrop-filter:blur(10px);
-      background:rgba(5,8,22,0.8);
-      border-bottom:1px solid rgba(255,255,255,0.1);
+    .terminal {
+      background: black;
+      color: #00ff88;
+      padding: 20px;
+      border-radius: 12px;
+      font-family: monospace;
+      overflow-x: auto;
     }
 
-    .navbar{
-      width:90%;
-      max-width:1300px;
-      margin:auto;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:18px 0;
+    .skill-bar {
+      height: 10px;
+      border-radius: 10px;
+      background: #1e293b;
+      overflow: hidden;
     }
 
-    .logo{
-      font-size:28px;
-      font-weight:700;
-      color:#00f7ff;
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(to right, #06b6d4, #8b5cf6);
     }
 
-    .nav-links{
-      display:flex;
-      gap:25px;
+    .card-hover:hover {
+      transform: translateY(-8px);
+      transition: 0.4s;
     }
-
-    .nav-links a{
-      color:white;
-      text-decoration:none;
-      transition:0.3s;
-      font-size:15px;
-    }
-
-    .nav-links a:hover{
-      color:#00f7ff;
-    }
-
-    .hero{
-      min-height:100vh;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:120px 20px 60px;
-      background:
-      radial-gradient(circle at top right,#00f7ff20,transparent 30%),
-      radial-gradient(circle at bottom left,#6c63ff20,transparent 30%),
-      #050816;
-    }
-
-    .hero-container{
-      width:90%;
-      max-width:1300px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:60px;
-      align-items:center;
-    }
-
-    .hero-text h1{
-      font-size:60px;
-      line-height:1.2;
-      margin-bottom:20px;
-    }
-
-    .hero-text h1 span{
-      color:#00f7ff;
-    }
-
-    .hero-text h3{
-      font-size:24px;
-      color:#9ca3af;
-      margin-bottom:20px;
-    }
-
-    .hero-text p{
-      color:#cbd5e1;
-      line-height:1.9;
-      margin-bottom:30px;
-      font-size:16px;
-    }
-
-    .hero-buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:20px;
-    }
-
-    .btn{
-      padding:14px 28px;
-      border-radius:12px;
-      border:none;
-      cursor:pointer;
-      font-weight:600;
-      text-decoration:none;
-      transition:0.4s;
-      display:inline-block;
-    }
-
-    .primary-btn{
-      background:#00f7ff;
-      color:#050816;
-      box-shadow:0 0 20px #00f7ff80;
-    }
-
-    .primary-btn:hover{
-      transform:translateY(-5px);
-    }
-
-    .secondary-btn{
-      border:2px solid #00f7ff;
-      color:#00f7ff;
-      background:transparent;
-    }
-
-    .secondary-btn:hover{
-      background:#00f7ff;
-      color:#050816;
-    }
-
-    .hero-image{
-      display:flex;
-      justify-content:center;
-    }
-
-    .hero-image img{
-      width:350px;
-      height:350px;
-      border-radius:50%;
-      object-fit:cover;
-      border:5px solid #00f7ff;
-      box-shadow:0 0 40px #00f7ff50;
-      animation:float 4s ease-in-out infinite;
-      background:#111827;
-    }
-
-    @keyframes float{
-      0%{transform:translateY(0px);}
-      50%{transform:translateY(-15px);}
-      100%{transform:translateY(0px);}
-    }
-
-    section{
-      padding:100px 20px;
-    }
-
-    .container{
-      width:90%;
-      max-width:1300px;
-      margin:auto;
-    }
-
-    .section-title{
-      text-align:center;
-      font-size:42px;
-      margin-bottom:60px;
-      color:#00f7ff;
-      position:relative;
-    }
-
-    .section-title::after{
-      content:'';
-      width:100px;
-      height:4px;
-      background:#00f7ff;
-      position:absolute;
-      left:50%;
-      transform:translateX(-50%);
-      bottom:-15px;
-      border-radius:20px;
-    }
-
-    .about-card{
-      background:#0f172a;
-      padding:40px;
-      border-radius:25px;
-      border:1px solid rgba(255,255,255,0.08);
-      line-height:2;
-      color:#d1d5db;
-      box-shadow:0 10px 40px rgba(0,0,0,0.3);
-    }
-
-    .skills-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:25px;
-    }
-
-    .skill-card{
-      background:#0f172a;
-      padding:30px;
-      border-radius:20px;
-      text-align:center;
-      transition:0.4s;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .skill-card:hover{
-      transform:translateY(-10px);
-      border-color:#00f7ff;
-      box-shadow:0 0 30px rgba(0,247,255,0.2);
-    }
-
-    .skill-card h3{
-      color:#00f7ff;
-      margin-bottom:15px;
-    }
-
-    .timeline{
-      position:relative;
-      max-width:1000px;
-      margin:auto;
-    }
-
-    .timeline::after{
-      content:'';
-      position:absolute;
-      width:4px;
-      background:#00f7ff;
-      top:0;
-      bottom:0;
-      left:50%;
-      margin-left:-2px;
-    }
-
-    .timeline-item{
-      padding:20px 40px;
-      position:relative;
-      width:50%;
-    }
-
-    .timeline-item::after{
-      content:'';
-      position:absolute;
-      width:20px;
-      height:20px;
-      background:#00f7ff;
-      border-radius:50%;
-      top:30px;
-      right:-10px;
-    }
-
-    .left{
-      left:0;
-    }
-
-    .right{
-      left:50%;
-    }
-
-    .right::after{
-      left:-10px;
-    }
-
-    .timeline-content{
-      background:#0f172a;
-      padding:30px;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .timeline-content h3{
-      color:#00f7ff;
-      margin-bottom:10px;
-    }
-
-    .timeline-content p{
-      color:#cbd5e1;
-      line-height:1.8;
-    }
-
-    .projects-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:30px;
-    }
-
-    .project-card{
-      background:#0f172a;
-      padding:30px;
-      border-radius:20px;
-      transition:0.4s;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .project-card:hover{
-      transform:translateY(-10px);
-      box-shadow:0 0 35px rgba(0,247,255,0.2);
-      border-color:#00f7ff;
-    }
-
-    .project-card h3{
-      color:#00f7ff;
-      margin-bottom:15px;
-    }
-
-    .project-card p{
-      color:#cbd5e1;
-      line-height:1.8;
-    }
-
-    .contact-container{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:40px;
-    }
-
-    .contact-card{
-      background:#0f172a;
-      padding:40px;
-      border-radius:20px;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact-card h3{
-      color:#00f7ff;
-      margin-bottom:20px;
-    }
-
-    .contact-card p{
-      margin-bottom:15px;
-      color:#cbd5e1;
-    }
-
-    .socials{
-      display:flex;
-      gap:15px;
-      margin-top:20px;
-      flex-wrap:wrap;
-    }
-
-    .socials a{
-      padding:12px 18px;
-      background:#00f7ff;
-      color:#050816;
-      text-decoration:none;
-      border-radius:10px;
-      font-weight:600;
-      transition:0.3s;
-    }
-
-    .socials a:hover{
-      transform:translateY(-5px);
-    }
-
-    form{
-      display:flex;
-      flex-direction:column;
-      gap:20px;
-    }
-
-    input,textarea{
-      padding:15px;
-      border:none;
-      outline:none;
-      border-radius:12px;
-      background:#111827;
-      color:white;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    textarea{
-      resize:none;
-      height:150px;
-    }
-
-    footer{
-      padding:30px;
-      text-align:center;
-      background:#020617;
-      color:#94a3b8;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
-
-    @media(max-width:900px){
-
-      .timeline::after{
-        left:20px;
-      }
-
-      .timeline-item{
-        width:100%;
-        padding-left:60px;
-        padding-right:20px;
-      }
-
-      .timeline-item::after{
-        left:10px;
-      }
-
-      .right{
-        left:0;
-      }
-
-      .hero-text h1{
-        font-size:42px;
-      }
-
-      .hero-image img{
-        width:280px;
-        height:280px;
-      }
-
-      .navbar{
-        flex-direction:column;
-        gap:15px;
-      }
-
-      .nav-links{
-        flex-wrap:wrap;
-        justify-content:center;
-      }
-    }
-
-  </style>
-</head>
-
-<body>
-
-<header>
-  <div class="navbar">
-    <div class="logo">Jahir's Portfolio</div>
-
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+  </style></head>
+<body>  <!-- Navbar -->  <nav class="fixed w-full top-0 z-50 bg-slate-950 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold gradient-text">Jahir Sayyed</h1><div class="space-x-6 hidden md:flex">
+    <a href="#home">Home</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#blogs">Blogs</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <button onclick="toggleTheme()" class="bg-cyan-500 px-4 py-2 rounded-xl">
+    Theme
+  </button>
+</div>
+
+  </nav>  <!-- Hero -->  <section id="home" class="min-h-screen flex items-center justify-center px-6">
+    <div class="max-w-7xl grid md:grid-cols-2 gap-10 items-center"><div>
+    <h2 class="text-5xl font-bold leading-tight mb-6">
+      Hi, I'm <span class="gradient-text">Jahir Sayyed</span>
+    </h2>
+
+    <h3 class="text-2xl mb-6 text-cyan-400">
+      <span id="typed"></span>
+    </h3>
+
+    <p class="text-slate-300 text-lg mb-8">
+      Building scalable cloud infrastructure, CI/CD automation, Kubernetes deployments,
+      AI-powered applications, and enterprise-grade DevOps pipelines.
+    </p>
+
+    <div class="flex gap-4 flex-wrap">
+      <a href="resume.pdf" download class="bg-cyan-500 hover:bg-cyan-600 px-6 py-3 rounded-xl font-semibold">
+        Download Resume
+      </a>
+
+      <a href="#contact" class="border border-cyan-500 px-6 py-3 rounded-xl">
+        Hire Me
+      </a>
     </div>
   </div>
-</header>
 
-<section class="hero">
-  <div class="hero-container">
-
-    <div class="hero-text">
-      <h1>Hi, I'm <span>Jahir Sayyad</span></h1>
-
-      <h3>Cloud DevOps Engineer | GenAI | LLMOps Engineer</h3>
-
-      <p>
-        Experienced Cloud DevOps Engineer with 3+ years of expertise in AWS Cloud,
-        Linux Administration, DevSecOps, Kubernetes, Docker, Terraform,
-        CI/CD pipelines, Monitoring & Logging, Security Automation,
-        Infrastructure as Code, and Generative AI technologies including
-        LLMs and RAG systems.
-      </p>
-
-      <div class="hero-buttons">
-        <a href="#contact" class="btn primary-btn">Hire Me</a>
-        <a href="Jahir_sayyed_cloud_devops_engineer.pdf" download class="btn secondary-btn">
-          Download Resume
-        </a>
-      </div>
+  <div>
+    <div class="terminal">
+      <p>$ kubectl get pods</p>
+      <p>$ terraform apply</p>
+      <p>$ docker build .</p>
+      <p>$ deploying AI pipeline...</p>
+      <p>$ monitoring infrastructure...</p>
     </div>
-
-    <div class="hero-image">
-      <img src="IMG_20251213_202724.png" alt="Jahir Sayyad">
-    </div>
-
   </div>
-</section>
 
-<section id="about">
-  <div class="container">
+</div>
 
-    <h2 class="section-title">About Me</h2>
+  </section>  <!-- Skills -->  <section id="skills" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Technical Skills</h2><div class="grid md:grid-cols-2 gap-8">
 
-    <div class="about-card">
-      <p>
-        I am a highly motivated and result-driven Cloud DevOps Engineer currently working at NielsenIQ, Pune.
-        My expertise includes AWS Cloud Infrastructure, Linux Administration, DevSecOps practices,
-        CI/CD Automation, Kubernetes, Docker, Terraform, Monitoring, Networking, Security,
-        and emerging Generative AI technologies.
-      </p>
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="text-2xl mb-4">DevOps & Cloud</h3>
 
-      <br>
+      <div class="space-y-5">
 
-      <p>
-        I have hands-on experience designing scalable cloud-native infrastructures,
-        automating deployment workflows, optimizing AWS environments,
-        implementing security best practices, and integrating AI-powered solutions
-        into operational systems.
-      </p>
-
-      <br>
-
-      <p>
-        I worked on enterprise telecom BSS/OSS systems and digital payment infrastructures
-        for international clients like AT&T USA and Sao Paulo Brazil.
-        I specialize in cloud automation, monitoring, infrastructure optimization,
-        and AI-assisted operational workflows.
-      </p>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-
-    <h2 class="section-title">Tech Stack</h2>
-
-    <div class="skills-grid">
-
-      <div class="skill-card">
-        <h3>Cloud & DevOps</h3>
-        <p>AWS, Terraform, Docker, Kubernetes, Jenkins, Ansible, CI/CD</p>
-      </div>
-
-      <div class="skill-card">
-        <h3>Operating Systems</h3>
-        <p>Linux, UNIX, Ubuntu, RedHat, CentOS, Windows</p>
-      </div>
-
-      <div class="skill-card">
-        <h3>Programming</h3>
-        <p>Python, Shell Scripting, Bash, PowerShell</p>
-      </div>
-
-      <div class="skill-card">
-        <h3>Monitoring</h3>
-        <p>Nagios, AWS CloudWatch, Logging, Alerting</p>
-      </div>
-
-      <div class="skill-card">
-        <h3>Networking</h3>
-        <p>VPC, DNS, TCP/IP, DHCP, SSH, Load Balancer</p>
-      </div>
-
-      <div class="skill-card">
-        <h3>Security</h3>
-        <p>DevSecOps, IAM, Security Groups, SIEM, ACL</p>
-      </div>
-
-      <div class="skill-card">
-        <h3>GenAI & LLMOps</h3>
-        <p>LLM, RAG, LangChain, HuggingFace, Prompt Engineering</p>
-      </div>
-
-      <div class="skill-card">
-        <h3>Data & Analytics</h3>
-        <p>PySpark, Spark SQL, ETL, Plotly, Dash, Statistical Analysis</p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="experience">
-  <div class="container">
-
-    <h2 class="section-title">Experience</h2>
-
-    <div class="timeline">
-
-      <div class="timeline-item left">
-        <div class="timeline-content">
-          <h3>Cloud DevOps Engineer — NielsenIQ</h3>
-
-          <p>
-            Pune, Maharashtra | April 2023 - Present
-          </p>
-
-          <br>
-
-          <p>
-            Managing AWS cloud infrastructure, DevOps automation,
-            CI/CD pipelines, monitoring systems, Linux administration,
-            security automation, and cloud-native deployments.
-          </p>
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>Docker</span>
+            <span>95%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div>
         </div>
-      </div>
 
-      <div class="timeline-item right">
-        <div class="timeline-content">
-          <h3>AT&T USA — 5G Services Upgrade Hub</h3>
-
-          <p>
-            AWS | DevOps | LLMOps | Telecom BSS/OSS
-          </p>
-
-          <br>
-
-          <p>
-            Worked on enterprise telecom cloud systems involving AWS infrastructure,
-            AI-assisted automation, CloudWatch monitoring, Terraform provisioning,
-            VPC setup, cloud security, disaster recovery, and infrastructure optimization.
-          </p>
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>Kubernetes</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
         </div>
-      </div>
 
-      <div class="timeline-item left">
-        <div class="timeline-content">
-          <h3>Digital Infrastructure Modernization</h3>
-
-          <p>
-            AT&T USA | Cloud Billing Infrastructure
-          </p>
-
-          <br>
-
-          <p>
-            Built scalable cloud billing solutions using AWS services,
-            monitoring systems, resource optimization, automation,
-            infrastructure governance, and cloud migration services.
-          </p>
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>Terraform</span>
+            <span>92%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
         </div>
-      </div>
 
-      <div class="timeline-item right">
-        <div class="timeline-content">
-          <h3>Digital Payment Integration Hub</h3>
-
-          <p>
-            Sao Paulo, Brazil | Linux System Administration
-          </p>
-
-          <br>
-
-          <p>
-            Managed Linux servers, application servers, monitoring systems,
-            automation scripts, AWS cloud instances, and enterprise payment infrastructure.
-          </p>
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>AWS</span>
+            <span>88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%"></div></div>
         </div>
-      </div>
 
+      </div>
+    </div>
+
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="text-2xl mb-4">GenAI & LLMOps</h3>
+
+      <div class="space-y-5">
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>LangChain</span>
+            <span>85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>RAG Pipelines</span>
+            <span>90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>Vector Databases</span>
+            <span>80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span>OpenAI APIs</span>
+            <span>87%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:87%"></div></div>
+        </div>
+
+      </div>
     </div>
 
   </div>
-</section>
+</div>
 
-<section id="projects">
-  <div class="container">
+  </section>  <!-- Projects -->  <section id="projects" class="py-20 px-6 bg-slate-900">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2><div class="grid md:grid-cols-3 gap-8">
 
-    <h2 class="section-title">Projects</h2>
+    <div class="glass rounded-2xl overflow-hidden card-hover">
+      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200&auto=format&fit=crop" class="h-52 w-full object-cover">
 
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <h3>5G Services Upgrade Hub</h3>
-
-        <p>
-          Enterprise telecom modernization project for AT&T USA involving
-          AWS infrastructure, cloud automation, monitoring, LLMOps,
-          AI-powered operational workflows, and scalable telecom architectures.
+      <div class="p-6">
+        <h3 class="text-2xl font-bold mb-4">Cloud DevOps Automation</h3>
+        <p class="text-slate-300 mb-4">
+          Automated enterprise cloud infrastructure using Terraform, AWS, Docker,
+          Kubernetes, Jenkins, and GitHub Actions.
         </p>
-      </div>
 
-      <div class="project-card">
-        <h3>Cloud Billing Modernization</h3>
-
-        <p>
-          Built enterprise-grade cloud billing infrastructure with AWS,
-          Docker, ETL pipelines, Terraform automation, and scalable
-          cloud-native deployment architecture.
-        </p>
-      </div>
-
-      <div class="project-card">
-        <h3>Digital Payment Infrastructure</h3>
-
-        <p>
-          Managed business-critical payment systems with Linux administration,
-          monitoring, automation, AWS instances, and enterprise infrastructure operations.
-        </p>
-      </div>
-
-      <div class="project-card">
-        <h3>GenAI & LLMOps Integration</h3>
-
-        <p>
-          Integrated Generative AI concepts into monitoring workflows,
-          log analysis, automation systems, AI-assisted scripting,
-          and intelligent cloud operational processes.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-
-    <h2 class="section-title">Contact Me</h2>
-
-    <div class="contact-container">
-
-      <div class="contact-card">
-
-        <h3>Get In Touch</h3>
-
-        <p><strong>Name:</strong> Jahir Sikandar Sayyad</p>
-        <p><strong>Email:</strong> Jahir.sayyed@outlook.com</p>
-        <p><strong>Phone:</strong> +91 9373824954</p>
-        <p><strong>Location:</strong> Pune, Maharashtra, India</p>
-
-        <div class="socials">
-          <a href="#">LinkedIn</a>
-          <a href="#">GitHub</a>
-          <a href="#">Resume</a>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-cyan-500 px-3 py-1 rounded-full text-sm">AWS</span>
+          <span class="bg-purple-500 px-3 py-1 rounded-full text-sm">Terraform</span>
+          <span class="bg-pink-500 px-3 py-1 rounded-full text-sm">Kubernetes</span>
         </div>
 
+        <div class="flex gap-4">
+          <a href="#" class="text-cyan-400">GitHub</a>
+          <a href="#" class="text-cyan-400">Live Demo</a>
+        </div>
       </div>
+    </div>
 
-      <div class="contact-card">
+    <div class="glass rounded-2xl overflow-hidden card-hover">
+      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1200&auto=format&fit=crop" class="h-52 w-full object-cover">
 
-        <h3>Send Message</h3>
+      <div class="p-6">
+        <h3 class="text-2xl font-bold mb-4">AI RAG Chatbot</h3>
+        <p class="text-slate-300 mb-4">
+          Built production-ready AI chatbot using OpenAI, LangChain, Vector DB,
+          FastAPI, and Kubernetes deployment.
+        </p>
 
-        <form>
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-cyan-500 px-3 py-1 rounded-full text-sm">LangChain</span>
+          <span class="bg-purple-500 px-3 py-1 rounded-full text-sm">OpenAI</span>
+          <span class="bg-pink-500 px-3 py-1 rounded-full text-sm">RAG</span>
+        </div>
 
-          <input type="text" placeholder="Your Name" required>
-
-          <input type="email" placeholder="Your Email" required>
-
-          <textarea placeholder="Write Your Message"></textarea>
-
-          <button class="btn primary-btn" type="submit">
-            Send Message
-          </button>
-
-        </form>
-
+        <div class="flex gap-4">
+          <a href="#" class="text-cyan-400">GitHub</a>
+          <a href="#" class="text-cyan-400">Live Demo</a>
+        </div>
       </div>
+    </div>
 
+    <div class="glass rounded-2xl overflow-hidden card-hover">
+      <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1200&auto=format&fit=crop" class="h-52 w-full object-cover">
+
+      <div class="p-6">
+        <h3 class="text-2xl font-bold mb-4">Monitoring Dashboard</h3>
+        <p class="text-slate-300 mb-4">
+          Implemented enterprise monitoring using Prometheus, Grafana,
+          Loki, and Kubernetes observability stack.
+        </p>
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          <span class="bg-cyan-500 px-3 py-1 rounded-full text-sm">Grafana</span>
+          <span class="bg-purple-500 px-3 py-1 rounded-full text-sm">Prometheus</span>
+          <span class="bg-pink-500 px-3 py-1 rounded-full text-sm">DevSecOps</span>
+        </div>
+
+        <div class="flex gap-4">
+          <a href="#" class="text-cyan-400">GitHub</a>
+          <a href="#" class="text-cyan-400">Live Demo</a>
+        </div>
+      </div>
     </div>
 
   </div>
-</section>
+</div>
 
-<footer>
-  <p>
-    © 2026 Jahir Sayyad | Cloud DevOps Engineer | GenAI | LLMOps
-  </p>
-</footer>
+  </section>  <!-- Dashboard -->  <section id="dashboard" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Live DevOps Dashboard</h2><div class="grid md:grid-cols-2 gap-10">
+    <div class="glass p-6 rounded-2xl">
+      <canvas id="cpuChart"></canvas>
+    </div>
 
-</body>
-  </html>
+    <div class="glass p-6 rounded-2xl">
+      <canvas id="deployChart"></canvas>
+    </div>
+  </div>
+</div>
+
+  </section>  <!-- Timeline -->  <section class="py-20 px-6 bg-slate-900">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Experience Timeline</h2><div class="space-y-8">
+
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="text-2xl font-bold">Cloud DevOps Engineer</h3>
+      <p class="text-cyan-400 mb-2">NielsenIQ - Pune</p>
+      <p class="text-slate-300">
+        Working on Kubernetes infrastructure, Terraform automation,
+        CI/CD pipelines, DevSecOps implementation, cloud deployments,
+        and monitoring systems.
+      </p>
+    </div>
+
+    <div class="glass p-6 rounded-2xl">
+      <h3 class="text-2xl font-bold">LLMOps & GenAI Engineer</h3>
+      <p class="text-cyan-400 mb-2">AI Projects</p>
+      <p class="text-slate-300">
+        Building RAG pipelines, vector databases, LLM integrations,
+        prompt engineering systems, and AI automation workflows.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+  </section>  <!-- Blogs -->  <section id="blogs" class="py-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Technical Blogs</h2><div class="grid md:grid-cols-3 gap-8">
+
+    <div class="glass p-6 rounded-2xl card-hover">
+      <h3 class="text-2xl font-bold mb-4">Kubernetes Explained</h3>
+      <p class="text-slate-300 mb-4">
+        Understanding Kubernetes architecture, pods, services, ingress,
+        deployments, and scaling.
+      </p>
+      <a href="#" class="text-cyan-400">Read More →</a>
+    </div>
+
+    <div class="glass p-6 rounded-2xl card-hover">
+      <h3 class="text-2xl font-bold mb-4">CI/CD Pipeline Setup</h3>
+      <p class="text-slate-300 mb-4">
+        Complete GitHub Actions and Jenkins CI/CD implementation guide.
+      </p>
+      <a href="#" class="text-cyan-400">Read More →</a>
+    </div>
+
+    <div class="glass p-6 rounded-2xl card-hover">
+      <h3 class="text-2xl font-bold mb-4">RAG Architecture</h3>
+      <p class="text-slate-300 mb-4">
+        Deep dive into Retrieval-Augmented Generation pipelines and LLMOps.
+      </p>
+      <a href="#" class="text-cyan-400">Read More →</a>
+    </div>
+
+  </div>
+</div>
+
+  </section>  <!-- Terminal Section -->  <section class="py-20 px-6 bg-slate-900">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Terminal Portfolio Mode</h2><div class="terminal text-lg leading-10">
+    <p>visitor@jahir-portfolio:~$ whoami</p>
+    <p>Cloud DevOps & LLMOps Engineer</p>
+
+    <p>visitor@jahir-portfolio:~$ skills</p>
+    <p>Docker Kubernetes Terraform AWS Jenkins LangChain OpenAI</p>
+
+    <p>visitor@jahir-portfolio:~$ projects</p>
+    <p>3 Production Projects Found</p>
+
+    <p>visitor@jahir-portfolio:~$ status</p>
+    <p>Actively building scalable cloud & AI systems...</p>
+  </div>
+</div>
+
+  </section>  <!-- Contact -->  <section id="contact" class="py-20 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-10 gradient-text">Contact Me</h2><div class="grid md:grid-cols-4 gap-6 mb-12">
+
+    <a href="#" class="glass p-6 rounded-2xl card-hover">
+      <i class="fab fa-linkedin text-4xl text-cyan-400 mb-4"></i>
+      <p>LinkedIn</p>
+    </a>
+
+    <a href="#" class="glass p-6 rounded-2xl card-hover">
+      <i class="fab fa-github text-4xl text-cyan-400 mb-4"></i>
+      <p>GitHub</p>
+    </a>
+
+    <a href="mailto:jahir@example.com" class="glass p-6 rounded-2xl card-hover">
+      <i class="fas fa-envelope text-4xl text-cyan-400 mb-4"></i>
+      <p>Email</p>
+    </a>
+
+    <a href="#" class="glass p-6 rounded-2xl card-hover">
+      <i class="fab fa-whatsapp text-4xl text-cyan-400 mb-4"></i>
+      <p>WhatsApp</p>
+    </a>
+
+  </div>
+
+  <form class="glass p-8 rounded-2xl space-y-6">
+    <input type="text" placeholder="Your Name" class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700">
+
+    <input type="email" placeholder="Your Email" class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700">
+
+    <textarea rows="5" placeholder="Your Message" class="w-full p-4 rounded-xl bg-slate-800 border border-slate-700"></textarea>
+
+    <button class="bg-cyan-500 hover:bg-cyan-600 px-8 py-4 rounded-xl font-semibold w-full">
+      Send Message
+    </button>
+  </form>
+</div>
+
+  </section>  <!-- Footer -->  <footer class="py-8 border-t border-slate-800 text-center text-slate-400">
+    © 2026 Jahir Sayyed | Built with DevOps + GenAI Passion
+  </footer>  <script>
+    new Typed('#typed', {
+      strings: [
+        'Cloud DevOps Engineer',
+        'Kubernetes Specialist',
+        'LLMOps Engineer',
+        'AI Infrastructure Builder'
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
+
+    function toggleTheme() {
+      document.body.classList.toggle('bg-white');
+      document.body.classList.toggle('text-black');
+    }
+
+    const cpuCtx = document.getElementById('cpuChart');
+    new Chart(cpuCtx, {
+      type: 'line',
+      data: {
+        labels: ['Mon','Tue','Wed','Thu','Fri','Sat'],
+        datasets: [{
+          label: 'CPU Usage',
+          data: [40, 55, 60, 75, 50, 65]
+        }]
+      }
+    });
+
+    const deployCtx = document.getElementById('deployChart');
+    new Chart(deployCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Success','Failed','Pending'],
+        datasets: [{
+          label: 'Deployments',
+          data: [85, 10, 5]
+        }]
+      }
+    });
+  </script></body>
+                                </html>
