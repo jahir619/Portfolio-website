@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio | DevOps & GenAI Engineer</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:#f1f5f9;
+      line-height:1.6;
+    }
+
+    .container{
+      width:90%;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    header{
+      background:#111827;
+      padding:20px 0;
+      position:sticky;
+      top:0;
+      z-index:1000;
+      border-bottom:1px solid #1e293b;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    nav h1{
+      color:#38bdf8;
+      font-size:28px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:20px;
+    }
+
+    nav ul li a{
+      color:#f8fafc;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#38bdf8;
+    }
+
+    .hero{
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:50px 0;
+    }
+
+    .hero-content img{
+      width:170px;
+      height:170px;
+      border-radius:50%;
+      border:4px solid #38bdf8;
+      margin-bottom:20px;
+      object-fit:cover;
+      background:#1e293b;
+    }
+
+    .hero h2{
+      font-size:48px;
+      margin-bottom:10px;
+    }
+
+    .hero h2 span{
+      color:#38bdf8;
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:auto;
+      color:#cbd5e1;
+      font-size:18px;
+    }
+
+    .btn{
+      display:inline-block;
+      margin-top:25px;
+      padding:12px 24px;
+      background:#38bdf8;
+      color:#0f172a;
+      text-decoration:none;
+      border-radius:8px;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:#0ea5e9;
+    }
+
+    section{
+      padding:80px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:36px;
+      margin-bottom:50px;
+      color:#38bdf8;
+    }
+
+    .about p{
+      max-width:900px;
+      margin:auto;
+      text-align:center;
+      color:#cbd5e1;
+      font-size:18px;
+    }
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+    }
+
+    .skill-card{
+      background:#1e293b;
+      padding:25px;
+      border-radius:12px;
+      text-align:center;
+      transition:0.3s;
+      border:1px solid transparent;
+    }
+
+    .skill-card:hover{
+      transform:translateY(-5px);
+      border-color:#38bdf8;
+    }
+
+    .experience-card,
+    .project-card{
+      background:#1e293b;
+      padding:25px;
+      border-radius:12px;
+      margin-bottom:25px;
+    }
+
+    .experience-card h3,
+    .project-card h3{
+      color:#38bdf8;
+      margin-bottom:10px;
+    }
+
+    .experience-card p,
+    .project-card p{
+      color:#cbd5e1;
+    }
+
+    .contact{
+      text-align:center;
+    }
+
+    .contact p{
+      margin-bottom:10px;
+      color:#cbd5e1;
+    }
+
+    .social-links{
+      margin-top:20px;
+    }
+
+    .social-links a{
+      display:inline-block;
+      margin:10px;
+      color:#38bdf8;
+      text-decoration:none;
+      font-weight:bold;
+    }
+
+    footer{
+      text-align:center;
+      padding:25px;
+      background:#111827;
+      color:#94a3b8;
+      margin-top:40px;
+    }
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      .hero h2{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .section-title{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <h1>My Portfolio</h1>
+
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-content">
+
+      <img src="https://via.placeholder.com/170" alt="Profile Photo"/>
+
+      <h2>Hello, I'm <span>Your Name</span></h2>
+
+      <p>
+        DevOps Engineer | Cloud Engineer | GenAI & LLMOps Enthusiast
+        passionate about building scalable cloud infrastructure,
+        automation pipelines, Kubernetes platforms, and AI-powered systems.
+      </p>
+
+      <a href="#contact" class="btn">Contact Me</a>
+
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+
+      <h2 class="section-title">About Me</h2>
+
+      <p>
+        I am a passionate DevOps and Cloud Engineer with experience in
+        AWS, Docker, Kubernetes, Terraform, CI/CD pipelines, Linux,
+        monitoring, automation, and modern AI infrastructure. I enjoy
+        building scalable systems and solving real-world infrastructure
+        and deployment challenges.
+      </p>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+
+      <h2 class="section-title">Skills</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">AWS Cloud</div>
+        <div class="skill-card">Docker</div>
+        <div class="skill-card">Kubernetes</div>
+        <div class="skill-card">Terraform</div>
+        <div class="skill-card">Linux</div>
+        <div class="skill-card">CI/CD Pipelines</div>
+        <div class="skill-card">Git & GitHub</div>
+        <div class="skill-card">Python</div>
+        <div class="skill-card">Shell Scripting</div>
+        <div class="skill-card">Monitoring & Logging</div>
+        <div class="skill-card">GenAI</div>
+        <div class="skill-card">LLMOps</div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+
+      <h2 class="section-title">Experience</h2>
+
+      <div class="experience-card">
+        <h3>Cloud DevOps Engineer</h3>
+        <p><strong>Company:</strong> Your Company Name</p>
+        <p><strong>Duration:</strong> 2024 - Present</p>
+
+        <p>
+          Worked on CI/CD pipelines, Docker containerization,
+          Kubernetes deployments, Terraform infrastructure automation,
+          AWS cloud services, and monitoring systems.
+        </p>
+      </div>
+
+      <div class="experience-card">
+        <h3>Intern / Junior Engineer</h3>
+        <p><strong>Company:</strong> Company Name</p>
+        <p><strong>Duration:</strong> 2023 - 2024</p>
+
+        <p>
+          Assisted in Linux administration, cloud deployments,
+          scripting automation, and DevOps workflow implementation.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project-card">
+        <h3>Kubernetes CI/CD Pipeline</h3>
+
+        <p>
+          Built an automated CI/CD pipeline using Jenkins, Docker,
+          Kubernetes, and GitHub Actions for scalable application deployment.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>Terraform Multi-Environment Infrastructure</h3>
+
+        <p>
+          Designed reusable Terraform modules for dev, staging,
+          and production cloud environments with remote state management.
+        </p>
+      </div>
+
+      <div class="project-card">
+        <h3>GenAI Chatbot Infrastructure</h3>
+
+        <p>
+          Developed scalable deployment architecture for LLM-based
+          applications using containerized AI services and cloud automation.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+
+      <h2 class="section-title">Contact</h2>
+
+      <p>Email: yourmail@example.com</p>
+      <p>Phone: +91 9876543210</p>
+      <p>Location: Pune, Maharashtra, India</p>
+
+      <div class="social-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">GitHub</a>
+        <a href="#">Portfolio</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Your Name | All Rights Reserved</p>
+  </footer>
+
+</body>
+        </html>
